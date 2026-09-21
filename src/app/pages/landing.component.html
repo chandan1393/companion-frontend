@@ -1,0 +1,54 @@
+<header class="topbar"><div class="container row"><a class="brand" routerLink="/"><span class="mark"></span><span>Companion<small>People. Experiences. Together.</small></span></a><nav><a routerLink="/search">Discover</a><a routerLink="/experiences">Experiences</a><a routerLink="/companions">Companions</a><a routerLink="/safety">Safety</a><a routerLink="/about">About</a></nav><div class="actions" *ngIf="!loggedIn"><a routerLink="/login">Login</a><a routerLink="/signup" class="btn pink">Sign up</a></div><div class="actions logged-actions" *ngIf="loggedIn"><a [routerLink]="dashboardLink" class="btn outline">My dashboard</a><span class="welcome">{{currentName}}</span><button type="button" class="btn pink" (click)="app.logout()">Logout</button></div></div></header>
+
+<section class="hero landing-hero"><div class="hero-image"></div><div class="container hero-inner"><div class="hero-copy"><div class="eyebrow">More than plans</div><h1 class="display">Find Your<br><span>Perfect Companion</span></h1><p>Meet verified people, share interests, and turn everyday moments into extraordinary experiences.</p>
+<div class="searchbar"><div>⌖<small>Where do you want to go?</small><b>Delhi</b></div><div>◷<small>Any date</small><b>Anytime</b></div><div>♟<small>Guests</small><b>1 person</b></div><a routerLink="/search" class="btn pink">Search →</a></div>
+<div class="popular"><b>Popular:</b><span>Coffee</span><span>Dinner</span><span>City Tour</span><span>Trekking</span><span>Concerts</span><span>Shopping</span><span>Gaming</span></div></div></div></section>
+
+<section class="trust"><div class="container trustgrid"><div *ngFor="let x of trust"><strong>{{x.i}}</strong><b>{{x.t}}</b><small>{{x.d}}</small></div></div></section>
+
+<section id="how" class="section"><div class="container how"><div class="howintro"><div class="eyebrow">How it works</div><h2 class="display">Find Your Companion in 4 Simple Steps</h2><p>It's easy to get started. Join today and be part of a growing community of amazing people.</p><a routerLink="/search" class="btn navy">Get Started →</a></div><div class="steps"><article class="step card" *ngFor="let s of steps"><span>{{s.n}}</span><i>{{s.i}}</i><h3>{{s.t}}</h3><p>{{s.d}}</p></article></div></div></section>
+
+<section class="section pale"><div class="container"><div class="head"><div><div class="eyebrow">Explore by interest</div><h2>Find an Experience That Fits Your Vibe</h2><p>Choose from coffee meetups, food, travel, adventure, events and more.</p></div><a routerLink="/experiences">View all experiences →</a></div><div class="experiencegrid"><a class="card exp" *ngFor="let e of categories" [routerLink]="['/experiences']" [queryParams]="{category:e.t}"><img class="expimg" [src]="'/assets/images/categories/' + e.img" [alt]="e.t" loading="lazy"><div><h3>{{e.t}}</h3><p>{{e.d}}</p></div></a></div></div></section>
+
+<section class="section"><div class="container community"><div><div class="eyebrow">Why Companion</div><h2 class="display">More Than a Platform,<br>A Community</h2><p>We're building a world where people feel less alone and more connected. Companion isn't just about meetups — it's about meaningful experiences.</p><a routerLink="/signup" class="btn pink">Join Our Community →</a></div><div class="benefits"><div *ngFor="let b of benefits"><strong>{{b.i}}</strong><span><b>{{b.t}}</b><small>{{b.d}}</small></span></div></div><div class="art">☺<small>Good People<br>Better Experiences ♡</small></div></div></section>
+
+<section class="section pale"><div class="container"><div class="head"><div><div class="eyebrow">What our users say</div><h2>Real People. Real Stories.</h2><p>Join thousands of happy users who've made unforgettable memories.</p></div></div><div class="reviews"><article class="card review" *ngFor="let r of reviews"><div class="avatar">{{r.i}}</div><p>“{{r.t}}”</p><b>{{r.n}}</b><div class="rating">★★★★★ <small>{{r.r}}</small></div></article></div></div></section>
+
+<section class="section"><div class="container"><div class="head"><div><div class="eyebrow">Explore cities</div><h2>Find Companions in Your City</h2><p>Discover people and experiences across top cities in India.</p></div></div><div class="cities"><article class="card city" *ngFor="let c of cities"><div class="cityimg" [style.background]="c.bg"></div><h3>{{c.n}}</h3><small>{{c.c}} companions</small></article></div></div></section>
+
+<section class="cta"><div class="container ctagrid"><div class="traveler">⌁</div><div><div class="eyebrow">Become a companion</div><h2>Turn Your Passions into Meaningful Connections</h2><p>Share your interests, meet new people, and earn while doing what you love.</p><a routerLink="/become-companion" class="btn pink">Become a Companion →</a></div><div class="checks"><span>✓ Set your own availability</span><span>✓ Meet like-minded people</span><span>✓ Earn for experiences</span><span>✓ Build your personal brand</span></div></div></section>
+
+<section class="section"><div class="container safety"><div><div class="eyebrow">Your safety matters</div><h2>A Safer Community for Everyone</h2><p>We take safety seriously so you can focus on what matters — creating great memories.</p><a routerLink="/safety" class="btn outline">Learn More →</a></div><div class="safetylist"><div>🛡 Identity Verification<small>Verified profiles only</small></div><div>💳 Secure Payments<small>Protected transactions</small></div><div>🚩 Reporting & Blocking<small>Control your experience</small></div><div>☎ 24/7 Support<small>Always here to help</small></div></div></div></section>
+
+<section class="app"><div class="container appgrid"><div class="phone">📱</div><div><div class="eyebrow">Companion on the go</div><h2>Take Companion Everywhere</h2><p>Discover new people and manage your experiences from anywhere.</p><button> App Store</button><button>▶ Google Play</button></div><div class="apppts"><span>💬 Chat on the go</span><span>🔔 Instant notifications</span><span>▣ Manage your bookings</span><span>✦ Discover new experiences</span></div></div></section>
+
+<section class="section faq"><div class="container"><div class="head"><div><div class="eyebrow">Frequently asked questions</div><h2>Got Questions? We've Got Answers.</h2></div></div><div class="faqgrid"><details *ngFor="let q of faqs"><summary>{{q}} <span>⌄</span></summary><p>Companion is designed around verified profiles, secure booking and respectful community guidelines.</p></details></div></div></section>
+
+
+<section class="mountain-banner">
+  <div class="mountain-image"></div>
+  <div class="mountain-overlay"></div>
+  <div class="container mountain-inner">
+    <div class="mountain-copy">
+      <div class="eyebrow">Stay connected</div>
+      <h2 class="display">Good People.<br>Better Experiences.</h2>
+      <p>Take a break from the ordinary. Discover people, places and moments worth remembering.</p>
+      <div class="mountain-actions">
+        <a routerLink="/companions" class="btn pink">Explore companions →</a>
+        <a routerLink="/experiences" class="btn outline">Explore experiences</a>
+      </div>
+    </div>
+
+    <div class="newsletter-inline">
+      <div class="eyebrow">Stay in the loop</div>
+      <h3>Get updates worth opening.</h3>
+      <p>New experiences, community stories and useful updates — without the noise.</p>
+      <form class="newsletter-form" (submit)="$event.preventDefault()">
+        <input type="email" placeholder="Enter your email" aria-label="Email address">
+        <button type="submit" class="btn pink">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container foot"><div><a class="brand white" routerLink="/"><span class="mark"><i></i><i></i><i></i><i></i></span><span>Companion<small>People. Experiences. Together.</small></span></a><p>Meaningful connections, memorable experiences.</p></div><div><b>Quick Links</b><a routerLink="/search">Discover</a><a routerLink="/experiences">Experiences</a><a routerLink="/companions">Companions</a><a routerLink="/become-companion">Become a Companion</a></div><div><b>Support</b><a routerLink="/safety">Safety</a><a routerLink="/about">About</a><a routerLink="/login">Help & Support</a></div><div><b>Account</b><a routerLink="/login">Login</a><a routerLink="/signup">Sign up</a></div></div><div class="copy">© 2026 Companion. All rights reserved.</div></footer>

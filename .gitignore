@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.angular/
+.vscode/
+.idea/
+
+.env
+.env.*
+!.env.example
+
+*.log
+npm-debug.log*
